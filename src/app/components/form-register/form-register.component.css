@@ -1,6 +1,7 @@
 .contenidoform {
 
-    height: 85vh;
+    /* border:2px solid black; */
+    height: 87vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -10,34 +11,60 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    
+
 
 }
 
 
-.formulario {
-    /* border: 2px solid black; */
-    height: 40%;
-    width: 25%;
+.preform {
+
+    border: 2px solid rgb(61, 76, 83);
+    height: 60%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    backdrop-filter: blur(5px);
-    
-    
+    align-items: center;
+    backdrop-filter: blur(30px);
+    border-radius: 10px;
+    gap: 7%;
 }
 
-.formulario input{
+.formulario {
+    /* border: 2px solid rgb(61, 76, 83); */
+    height: 70%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5%;
+    border-radius: 1%;
+    padding-top: 3%;
 
-    height: 50%;
-    background-color: rgb(240, 209, 159);
+}
+
+.formulario input {
+
+    height: 30%;
+    /* background-color: rgb(235, 187, 112); */
     font: var(--myfont);
     font-size: medium;
-    text-align:left;
+    text-align: left;
     padding-left: 2%;
-    border-radius: 20px;
-    
-    
-    
-    
+    color: rgb(61, 76, 83);
+
+}
+
+.boton {
+
+    height: 15%;
+    width: 30%;
+    font: var(--myfont);
+    color: rgb(61, 76, 83);
+    background: transparent;
+    border-bottom: 3px solid rgb(61, 76, 83);
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 1%;
+
 }
