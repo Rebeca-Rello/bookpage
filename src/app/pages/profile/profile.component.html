@@ -1,0 +1,39 @@
+<div class="body">
+
+    <div class="imagen">
+        <div class="preform">
+            <img src="{{user.photo}}"
+                alt="">
+                <h2 class="nombre">{{user.name}} {{user.last_name}} </h2>
+            <form class="formulario">
+                <div class="label">
+                    <label for="">Nombre</label>
+                    <label for="">Apellidos</label>
+                    <label for="">Email </label>
+                </div>
+                <div class="input">
+                   <p>{{user.name}}</p>
+                   <p>{{user.last_name}}</p>
+                   <p>{{user.email}}</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="edicion">
+        
+        <form class="formulario2">
+            <h2 class="datos">Editar datos</h2>
+              <div class="input2">
+                <input type="text" placeholder="Nombre" #input1>
+                <input type="text" placeholder="Apellidos" #input2>
+                <input type="text" placeholder="Email"#input3>
+                <input type="text" placeholder="Url"#input4>
+                <button type="button" class="boton" (click)="enviar(input1.value, input2.value, input3.value, input4.value)">Enviar</button>
+            </div>
+        </form>
+    
+
+    </div>
+
+</div>
