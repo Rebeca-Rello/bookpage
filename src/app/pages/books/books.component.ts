@@ -38,9 +38,15 @@ let booknew=new Book(title, type,author, price, photo, id_book);
 
 this.books.push(booknew)
 
+}
 
+recoger(bookPadre:Book){
 
+  let findBooks= this.books.filter(index=>index.id_book!=bookPadre.id_book)
+  console.log(findBooks);
 
+    
+this.books = findBooks;
 
 
 
