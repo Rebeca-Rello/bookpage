@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Book } from 'src/app/models/book';
+import { BooksService } from 'src/app/shared/books.service';
 
 @Component({
   selector: 'app-books',
@@ -10,20 +11,9 @@ export class BooksComponent {
 
  public books:Book[];
 
-constructor(){
+constructor(public BooksService:BooksService,){
 
-  let book1:Book=new Book( "Donde los árboles cantan", "Fantasía", "Laura Gallego", 20, 
-                          "https://m.media-amazon.com/images/I/51AcjmteB+L._SY344_BO1,204,203,200_.jpg",1234, 12);
-
-  let book2:Book=new Book ( "Los Pilares de la Tierra", "Historia","Ken Follet",25,
-                           "https://pictures.abebooks.com/isbn/9788499086514-es.jpg",1345,21)
-  
-  let book3:Book= new Book ("Un cuento perfecto", "Romántica", "Elisabet Benavent", 25,
-                             "https://imagessl3.casadellibro.com/a/l/t7/13/9788466354813.jpg",4567,32)
-
- this.books=[book1, book2, book3];
-
-
+this.books = this.BooksService.getAll()
 
 
 
@@ -45,14 +35,30 @@ recoger(bookPadre:Book){
   let findBooks= this.books.filter(index=>index.id_book!=bookPadre.id_book)
   console.log(findBooks);
 
-    
+
 this.books = findBooks;
 
+}
+
+busquedalibro(id_book:string){
+
+if(id_book==""){
+this.books =this.BooksService.getAll();
+
+}
+else{
+
+  let number:number=Number(id_book)
+  let busquedalibro =this.BooksService.getOne(number)
+  if(busquedalibro != undefined){
+  this.books = [busquedalibro];
+  }
 
 
 }
 
 
+}
 
 
 
