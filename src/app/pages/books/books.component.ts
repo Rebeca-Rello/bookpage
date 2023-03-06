@@ -11,9 +11,9 @@ export class BooksComponent {
 
  public books:Book[];
 
-constructor(public BooksService:BooksService,){
+constructor(public booksService:BooksService){
 
-this.books = this.BooksService.getAll()
+this.books = this.booksService.getAll()
 
 
 
@@ -30,30 +30,33 @@ this.books.push(booknew)
 
 }
 
-recoger(bookPadre:Book){
+public recoger(id_book:number){
 
-  let findBooks= this.books.filter(index=>index.id_book!=bookPadre.id_book)
-  console.log(findBooks);
+  let lessCard = this.booksService.delete(id_book);
 
 
-this.books = findBooks;
+  if(lessCard){
 
+    alert("Se ha eliminado el libro con id" + " "+ id_book)
+    this.books = this.booksService.getAll()
+  
+}
 }
 
 busquedalibro(id_book:string){
 
 if(id_book==""){
-this.books =this.BooksService.getAll();
+this.books = this.booksService.getAll();
+
 
 }
 else{
 
   let number:number=Number(id_book)
-  let busquedalibro =this.BooksService.getOne(number)
+  let busquedalibro =this.booksService.getOne(number)
   if(busquedalibro != undefined){
   this.books = [busquedalibro];
-  }
-
+  }else(alert("No hay coincidencias"));
 
 }
 
