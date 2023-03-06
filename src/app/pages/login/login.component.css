@@ -1,0 +1,19 @@
+
+.main{
+    background-image: url("https://img.freepik.com/foto-gratis/composicion-vista-frontal-diferentes-libros_23-2148851048.jpg?w=1060&t=st=1677505325~exp=1677505925~hmac=ea4ff7d36ced360eebfe9eb87c202ff82528a4a89ac995a4476fdba96be75f06");
+    height: 87vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color:rgba(82,103,112);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20%;
+    padding:4%;
+    
+    
+    
+    }

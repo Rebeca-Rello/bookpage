@@ -35,19 +35,13 @@ this.books=[book1, book2, book3];
 
   public getOne(id_libro: number): Book { 
 
-    let findbook = -1;
-
-    for(let i=0;i<this.books.length;i++){
-
-      if(this.books[i].id_book == id_libro)(
-        findbook=i
-      )
-    }
- 
-    return this.books[findbook]
+    let findbook = this.books.find(book =>book.id_book == id_libro);
+     
+    return findbook
 
 
   }
+  
   public add(book: Book):void{
 
   this.books.push(book)

@@ -24,10 +24,15 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
+            "styles":[
+              "node/modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            
+            "scripts":[
+            
+              "node/modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
