@@ -14,6 +14,7 @@ import { ReferenciaPipe } from './pipes/referencia.pipe';
 import { CardComponent } from './component/card/card.component';
 import { AdBookComponent } from './pages/ad-book/ad-book.component';
 import { UpdateBookComponent } from './pages/update-book/update-book.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { UpdateBookComponent } from './pages/update-book/update-book.component';
     CardComponent,
     AdBookComponent,
     UpdateBookComponent,
+    LoginComponent,
     
   ],
   imports: [
