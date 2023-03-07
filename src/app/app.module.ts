@@ -15,6 +15,8 @@ import { CardComponent } from './component/card/card.component';
 import { AdBookComponent } from './pages/ad-book/ad-book.component';
 import { UpdateBookComponent } from './pages/update-book/update-book.component';
 import { LoginComponent } from './pages/login/login.component';
+import { FormLoginComponent } from './components/form-login/form-login.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,13 +34,17 @@ import { LoginComponent } from './pages/login/login.component';
     AdBookComponent,
     UpdateBookComponent,
     LoginComponent,
+    FormLoginComponent,
+    
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
+   
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: []
+  
 })
 export class AppModule { }

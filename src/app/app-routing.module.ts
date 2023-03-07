@@ -17,7 +17,6 @@ const routes: Routes = [
   {path:"ad-book", component:AdBookComponent},
   {path:"update-book", component:UpdateBookComponent},
   {path:"app-login", component:LoginComponent},
-
  
 ];
 
