@@ -14,6 +14,9 @@ import { ReferenciaPipe } from './pipes/referencia.pipe';
 import { CardComponent } from './component/card/card.component';
 import { AdBookComponent } from './pages/ad-book/ad-book.component';
 import { UpdateBookComponent } from './pages/update-book/update-book.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
+import { FormLoginComponent } from './components/form-login/form-login.component';
 
 
 @NgModule({
@@ -30,11 +33,16 @@ import { UpdateBookComponent } from './pages/update-book/update-book.component';
     CardComponent,
     AdBookComponent,
     UpdateBookComponent,
+    LoginComponent,
+    FormLoginComponent,
+
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

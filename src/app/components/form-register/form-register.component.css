@@ -45,7 +45,7 @@
 
 .formulario input {
 
-    height: 30%;
+    height: 100%;
     /* background-color: rgb(235, 187, 112); */
     font: var(--myfont);
     font-size: medium;
