@@ -44,7 +44,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule
    
   ],
-  providers: []
+  providers: [],
+  bootstrap: [AppComponent]
   
 })
 export class AppModule { }
