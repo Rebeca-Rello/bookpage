@@ -17,6 +17,7 @@ import { UpdateBookComponent } from './pages/update-book/update-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
+import { ToastNoAnimationModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -35,7 +36,6 @@ import { FormLoginComponent } from './components/form-login/form-login.component
     UpdateBookComponent,
     LoginComponent,
     FormLoginComponent,
-
     
   ],
   imports: [
@@ -43,8 +43,11 @@ import { FormLoginComponent } from './components/form-login/form-login.component
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    ToastNoAnimationModule.forRoot()
+    
+   
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: []
+  
 })
 export class AppModule { }

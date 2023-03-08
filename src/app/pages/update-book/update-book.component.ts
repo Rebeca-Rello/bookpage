@@ -37,7 +37,15 @@ export class UpdateBookComponent {
   
   let booknew=new Book(title, type,author, price, photo, id_book);
   
-  this.BookService.edit(booknew)
+  let editedBook:boolean =  this.BookService.edit(booknew);
+
+  if(editedBook){
+
+    alert("Se ha modificado el libro con id" + " " + id_book )
+
+  }else{  alert("No se han encontrado coincidencias con el id: "  + id_book)}
+
+
   
   }
   

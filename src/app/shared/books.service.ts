@@ -35,19 +35,13 @@ this.books=[book1, book2, book3];
 
   public getOne(id_libro: number): Book { 
 
-    let findbook = -1;
-
-    for(let i=0;i<this.books.length;i++){
-
-      if(this.books[i].id_book == id_libro)(
-        findbook=i
-      )
+    let findbook = this.books.find(book =>book.id_book == id_libro);
+     
+    return findbook
     }
  
-    return this.books[findbook]
-
-
-  }
+    
+  
   public add(book: Book):void{
 
   this.books.push(book)
@@ -56,34 +50,37 @@ this.books=[book1, book2, book3];
 }
 
  public edit(book: Book):boolean {
+  
+  let indexBook:number= this.books.findIndex(book1 =>book1.id_book == book.id_book);
 
-  for(let i=0;i<this.books.length;i++){
-
-    if(this.books[i].id_book == book.id_book){
-
-      this.books[i] = book
-    }
-
+  if( indexBook != -1){
+    
+    this.books.splice(indexBook, 1, book)
   }
-    return true;
+
+
+  return indexBook !=-1
+    
+ 
  }
 
 
 
+
+
   public delete(id_book: number): boolean { 
+    
+   
+      let deleteCard:number = this.books.findIndex(id_book1=>id_book1.id_book == id_book );
 
-    for(let i=0;i<this.books.length;i++){
+      if(deleteCard != -1){
 
-        if(this.books[i].id_book == id_book){
-
-          this.books.splice(i,1);
-
-        }
-    }
-
-      return true
-  }
-
+        this.books.splice(deleteCard,1)
+      }
+      return deleteCard !=-1
+   
+   }
+   
 }
 
 

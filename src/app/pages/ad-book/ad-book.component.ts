@@ -40,6 +40,7 @@ export class AdBookComponent {
   let booknew=new Book(title, type,author, price, photo, id_book);
   
   this.BookService.add(booknew);
+  alert("Se ha añadido un nuevo libro")
   
   }
   

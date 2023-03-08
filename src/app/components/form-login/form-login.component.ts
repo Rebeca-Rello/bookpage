@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { User } from 'src/app/models/user';
 import { NgForm } from '@angular/forms';
 
+=======
+import{NgForm} from '@angular/forms';
+import {User} from 'src/app/models/user';
+>>>>>>> dia6Bis
 
 @Component({
   selector: 'app-form-login',
@@ -10,6 +15,7 @@ import { NgForm } from '@angular/forms';
 })
 export class FormLoginComponent {
 
+<<<<<<< HEAD
 
   public user:User
 
@@ -27,6 +33,22 @@ this.user
 
 }
 
+=======
+  public user:User
+
+  constructor()
+  {
+    this.user = new User(1, "", "", "pepitoperez@gmail.com", "https://img.freepik.com/foto-gratis/apuesto-hombre-empresario-sonriendo-alegre_176420-17877.jpg", "1234")
+
+  }
+
+  onSubmit(form:NgForm){
+
+    
+
+
+  }
+>>>>>>> dia6Bis
 
 
 }

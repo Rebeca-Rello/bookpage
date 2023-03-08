@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { NgFor } from '@angular/common';
+=======
+>>>>>>> dia6Bis
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -9,4 +12,14 @@ import { User } from 'src/app/models/user';
 })
 export class LoginComponent {
 
+<<<<<<< HEAD
+=======
+
+  constructor(){
+
+   
+  }
+
+
+>>>>>>> dia6Bis
 }
