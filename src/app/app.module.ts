@@ -11,7 +11,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { BooksComponent } from './pages/books/books.component';
 import { ReferenciaPipe } from './pipes/referencia.pipe';
-import { CardComponent } from './component/card/card.component';
+import { CardComponent } from './components/card/card.component';
 import { AdBookComponent } from './pages/ad-book/ad-book.component';
 import { UpdateBookComponent } from './pages/update-book/update-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
