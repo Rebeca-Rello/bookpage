@@ -47,7 +47,8 @@ import { ToastNoAnimationModule } from 'ngx-toastr';
     
    
   ],
-  providers: []
+  providers: [],
+  bootstrap: [AppComponent]
   
 })
 export class AppModule { }

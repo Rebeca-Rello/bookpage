@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BooksComponent } from '../books/books.component';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-book',
@@ -11,7 +12,7 @@ import { BooksService } from 'src/app/shared/books.service';
 export class UpdateBookComponent {
   // public books:Book[];
 
-  constructor(public BookService:BooksService){
+  constructor(public BookService:BooksService, private toastr: ToastrService){
   
   //   let book1:Book=new Book( "Donde los árboles cantan", "Fantasía", "Laura Gallego", 20, 
   //                           "https://m.media-amazon.com/images/I/51AcjmteB+L._SY344_BO1,204,203,200_.jpg",1234, 12);
@@ -41,9 +42,9 @@ export class UpdateBookComponent {
 
   if(editedBook){
 
-    alert("Se ha modificado el libro con id" + " " + id_book )
+    this.toastr.success("Se ha modificado el libro con id" + " " + id_book );
 
-  }else{  alert("No se han encontrado coincidencias con el id: "  + id_book)}
+  }else{  this.toastr.warning("No se han encontrado coincidencias con el id: "  + id_book)}
 
 
   
