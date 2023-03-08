@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BooksComponent } from '../books/books.component';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-ad-book',
@@ -13,7 +14,7 @@ export class AdBookComponent {
 
   public books:Book[];
 
-  constructor(public BookService:BooksService){
+  constructor(public BookService:BooksService, private toastr: ToastrService){
   
     let book1:Book=new Book( "Donde los árboles cantan", "Fantasía", "Laura Gallego", 20, 
                             "https://m.media-amazon.com/images/I/51AcjmteB+L._SY344_BO1,204,203,200_.jpg",1234, 12);
@@ -40,7 +41,7 @@ export class AdBookComponent {
   let booknew=new Book(title, type,author, price, photo, id_book);
   
   this.BookService.add(booknew);
-  alert("Se ha añadido un nuevo libro")
+  this.toastr.warning("Se ha añadido un nuevo libro")
   
   }
   

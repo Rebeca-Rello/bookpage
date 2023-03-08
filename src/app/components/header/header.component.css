@@ -18,12 +18,11 @@ header a {
     font: var(--myfont);
     color: rgba(82, 103, 112);
     font-size: 25px;
+   
+    
     
 }
 
-
-
-       
 
 .titulo {
     /* border:2px solid white; */
@@ -33,7 +32,7 @@ header a {
     font-weight: bolder;
 }
 
-.links{
+.links {
     /* border:2px solid red; */
     width: 80%;
     display: flex;
@@ -41,9 +40,12 @@ header a {
     justify-content: space-around;
     /* padding-right: 2%; */
     
+    
 }
-.links :hover{
 
-color: white;
-
-}
+.active-link{
+    color: rgb(255, 255, 255) !important;
+    text-decoration:underline  !important;
+    
+   
+  }
