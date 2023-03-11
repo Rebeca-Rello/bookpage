@@ -17,13 +17,13 @@ export class AdBookComponent {
   constructor(public BookService:BooksService, private toastr: ToastrService){
   
     let book1:Book=new Book( "Donde los árboles cantan", "Fantasía", "Laura Gallego", 20, 
-                            "https://m.media-amazon.com/images/I/51AcjmteB+L._SY344_BO1,204,203,200_.jpg",1234, 12);
+                            "https://m.media-amazon.com/images/I/51AcjmteB+L._SY344_BO1,204,203,200_.jpg",1234);
   
     let book2:Book=new Book ( "Los Pilares de la Tierra", "Historia","Ken Follet",25,
-                             "https://pictures.abebooks.com/isbn/9788499086514-es.jpg",1345,21)
+                             "https://pictures.abebooks.com/isbn/9788499086514-es.jpg",1345)
     
     let book3:Book= new Book ("Un cuento perfecto", "Romántica", "Elisabet Benavent", 25,
-                               "https://imagessl3.casadellibro.com/a/l/t7/13/9788466354813.jpg",4567,32)
+                               "https://imagessl3.casadellibro.com/a/l/t7/13/9788466354813.jpg",4567)
   
    this.books=[book1, book2, book3];
   

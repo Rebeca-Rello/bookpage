@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import { ToastNoAnimationModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ToastNoAnimationModule } from 'ngx-toastr';
     FormsModule,
     ReactiveFormsModule,
     ToastNoAnimationModule.forRoot(),
+    HttpClientModule,
    
     
    

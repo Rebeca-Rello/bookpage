@@ -11,10 +11,11 @@ import { BooksService } from 'src/app/shared/books.service';
 export class BooksComponent {
 
  public books:Book[];
+  libros: any;
 
-constructor(public booksService:BooksService, private toastr: ToastrService){
+constructor(public apiService:BooksService, private toastr: ToastrService){
 
-this.books = this.booksService.getAll()
+this.libros = this.apiService.getAll()
 
 
 
@@ -31,15 +32,15 @@ this.books.push(booknew)
 
 }
 
-public recoger(id_book:number){
+public recoger(id_book:string){
 
-  let lessCard = this.booksService.delete(id_book);
+  let lessCard = this.apiService.delete(id_book);
 
 
   if(lessCard){
 
     alert("Se ha eliminado el libro con id" + " "+ id_book)
-    this.books = this.booksService.getAll()
+    this.libros = this.apiService.getAll()
   
 }
 }
@@ -47,16 +48,15 @@ public recoger(id_book:number){
 busquedalibro(id_book:string){
 
 if(id_book==""){
-this.books = this.booksService.getAll();
+this.libros = this.apiService.getAll();
 
 
 }
 else{
 
-  let number:number=Number(id_book)
-  let busquedalibro =this.booksService.getOne(number)
+  let busquedalibro =this.apiService.getAll()
   if(busquedalibro != undefined){
-  this.books = [busquedalibro];
+  this.libros = [busquedalibro];
   }else(this.toastr.warning("No hay coincidencias"));
 
 }
@@ -64,6 +64,12 @@ else{
 
 }
 
+public mostrarlibros(){
 
+  this.apiService.getAll().subscribe((resp:Book[])=>{
 
+    this.apiService.libros = this.books;
+  
+  })
+}
 }

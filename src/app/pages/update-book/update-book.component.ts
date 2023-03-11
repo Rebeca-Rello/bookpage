@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class UpdateBookComponent {
   // public books:Book[];
 
-  constructor(public BookService:BooksService, private toastr: ToastrService){
+  constructor(public apiService:BooksService, private toastr: ToastrService){
   
   //   let book1:Book=new Book( "Donde los árboles cantan", "Fantasía", "Laura Gallego", 20, 
   //                           "https://m.media-amazon.com/images/I/51AcjmteB+L._SY344_BO1,204,203,200_.jpg",1234, 12);
@@ -33,22 +33,21 @@ export class UpdateBookComponent {
   
   
   
-  public enviar(title: string, type: string,author: string, price: number,photo: string, id_book:number){
+  public enviar(title:HTMLInputElement , type:HTMLInputElement ,author:HTMLInputElement , price: HTMLInputElement,photo:HTMLInputElement , id_book:HTMLInputElement){
   
-  
-  let booknew=new Book(title, type,author, price, photo, id_book);
-  
-  let editedBook:boolean =  this.BookService.edit(booknew);
 
-  if(editedBook){
+  if(id_book){
+    let booknew=new Book(title.value, type.value,author.value, price.valueAsNumber, photo.value, id_book.valueAsNumber);
+       this.apiService.edit(booknew)
+    this.toastr.success("Se ha modificado el libro con id" + " " + id_book.valueAsNumber );
 
-    this.toastr.success("Se ha modificado el libro con id" + " " + id_book );
-
-  }else{  this.toastr.warning("No se han encontrado coincidencias con el id: "  + id_book)}
+  }else{  this.toastr.warning("No se han encontrado coincidencias con el id: "  + id_book.valueAsNumber)}
 
 
   
   }
+
+
   
   // recoger(bookPadre:Book){
   
