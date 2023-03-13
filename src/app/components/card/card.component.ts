@@ -20,6 +20,6 @@ export class CardComponent {
 
     this.eventoBoton.emit(this.bookPadre.id_book)
 
-
+     
   }
 }

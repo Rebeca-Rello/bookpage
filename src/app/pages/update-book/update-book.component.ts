@@ -31,21 +31,17 @@ export class UpdateBookComponent {
   
   }
   
-  
-  
-  public enviar(title:HTMLInputElement , type:HTMLInputElement ,author:HTMLInputElement , price: HTMLInputElement,photo:HTMLInputElement , id_book:HTMLInputElement){
-  
 
-  if(id_book){
-    let booknew=new Book(title.value, type.value,author.value, price.valueAsNumber, photo.value, id_book.valueAsNumber);
-       this.apiService.edit(booknew)
-    this.toastr.success("Se ha modificado el libro con id" + " " + id_book.valueAsNumber );
-
-  }else{  this.toastr.warning("No se han encontrado coincidencias con el id: "  + id_book.valueAsNumber)}
+public edit (title:string, type:string, author: string, price: number, photo:string, id_book:number){
+  let newBook = new Book(title, type, author, price, photo, Number(id_book));
+   this.apiService.edit (newBook).subscribe((data)=>{
+    this.toastr.success("La referencia del libro " + " " + newBook.id_book + "ha sido modificada")
+  });
+}
 
 
+}
   
-  }
 
 
   
@@ -59,7 +55,7 @@ export class UpdateBookComponent {
   
   
   
-  }
+  
 
 
   

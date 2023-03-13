@@ -14,7 +14,7 @@ export class AdBookComponent {
 
   public books:Book[];
 
-  constructor(public BookService:BooksService, private toastr: ToastrService){
+  constructor(public apiService:BooksService, private toastr: ToastrService){
   
     let book1:Book=new Book( "Donde los árboles cantan", "Fantasía", "Laura Gallego", 20, 
                             "https://m.media-amazon.com/images/I/51AcjmteB+L._SY344_BO1,204,203,200_.jpg",1234);
@@ -35,13 +35,16 @@ export class AdBookComponent {
   
   
   
-  public enviar(title: string, type: string,author: string, price: number,photo: string, id_book:number){
-  
-  
-  let booknew=new Book(title, type,author, price, photo, id_book);
-  
-  this.BookService.add(booknew);
-  this.toastr.warning("Se ha añadido un nuevo libro")
+  public enviar(title: string,type:string, author: string, price: number, photo:string, id_book:number){
+
+      let newBook = new Book(title, type, author, price, photo, id_book);
+      console.log(newBook)
+      this.apiService.add(newBook).subscribe((data)=>{
+      console.log(data)
+
+    this.toastr.warning("Se ha añadido un nuevo libro")
+  });
+
   
   }
   
