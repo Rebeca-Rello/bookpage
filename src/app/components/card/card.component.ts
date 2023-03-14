@@ -16,9 +16,9 @@ export class CardComponent {
   constructor(public BookService:BooksService){}
 
 
-  eliminarCard(){
+  eliminarCard(id:number){
 
-    this.eventoBoton.emit(this.bookPadre.id_book)
+    this.eventoBoton.emit(id)
 
      
   }

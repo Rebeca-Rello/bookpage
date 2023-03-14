@@ -49,14 +49,16 @@ public findBook(id_book:string){
 
 // }
 
-public recoger(id_book: string) {
-  let lessCard = this.apiService.delete(id_book);
-  if (lessCard) {
-    this.apiService.getAll().subscribe((books) => {
-      this.books = books;
-      alert("Se ha eliminado el libro con id" + " " + id_book);
-    });
-  }
+public recoger(id_book: number) {
+ 
+this.apiService.delete(id_book).subscribe((datos:any)=>{
+
+  this.books=datos.data
+  console.log(datos.data)
+}
+
+
+)
 }
 
 
@@ -82,4 +84,4 @@ public recoger(id_book: string) {
 // }
 
 
-}
+
