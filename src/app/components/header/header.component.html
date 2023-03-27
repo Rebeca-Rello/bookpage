@@ -5,26 +5,28 @@
     <div class="links">
         
         <div>
-            <a routerLink="home" routerLinkActive="active-link">Home</a>
+            <a  routerLink="home" routerLinkActive="active-link" *ngIf = "!this.userService.logueado">Home</a>
         </div>
         <div>
-            <a routerLink="ad-book" routerLinkActive="active-link">AddBooks</a>
+            <a  routerLink="register" routerLinkActive="active-link" *ngIf = "!this.userService.logueado">Register</a>
         </div>
         <div>
-            <a routerLink="update-book" routerLinkActive="active-link">UpdateBook</a>
+            <a  routerLink="app-login" routerLinkActive="active-link" *ngIf = "!this.userService.logueado">Login</a>
         </div>
-        <div>
-            <a routerLink="register" routerLinkActive="active-link">Register</a>
+
+        <div >
+            <a routerLink="ad-book" routerLinkActive="active-link" *ngIf = "this.userService.logueado">AddBooks</a>
         </div>
-        <div>
-            <a routerLink="profile" routerLinkActive="active-link">Profile</a>
+        <div >    
+            <a routerLink="update-book" routerLinkActive="active-link" *ngIf = "this.userService.logueado">UpdateBook</a>
         </div>
-        <div>
-            <a routerLink="books" routerLinkActive="active-link">Books</a>
+        <div >
+            <a routerLink="profile" routerLinkActive="active-link" *ngIf = "this.userService.logueado">Profile</a>
         </div>
-        <div>
-            <a routerLink="app-login" routerLinkActive="active-link">Login</a>
+        <div >
+            <a routerLink="books" routerLinkActive="active-link" *ngIf = "this.userService.logueado">Books</a>
         </div>
+      
     </div>
 
   

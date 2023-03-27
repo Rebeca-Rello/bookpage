@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book';
+import { Respuesta } from 'src/app/models/respuesta';
+import { User } from 'src/app/models/user';
 import { BooksService } from 'src/app/shared/books.service';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-books',
@@ -11,14 +14,19 @@ import { BooksService } from 'src/app/shared/books.service';
 export class BooksComponent {
 
  public books:Book[];
-  // libros: any;
+ public respuesta: any;
 
-constructor(public apiService:BooksService, private toastr: ToastrService){
 
-  this.apiService.getAll().subscribe((data:Book[])=>
+constructor(public apiService:BooksService, private toastr: ToastrService, 
+            public usuarioService:UserService){
+
+  this.books = []
+  this.apiService.getAll(usuarioService.user.id_user).subscribe((respuesta:Respuesta)=>
     {
-      console.log(data);
-      this.books = data
+      console.log(respuesta);
+      this.books = respuesta.data
+      console.log(this.books);
+      
     })
 
 }
@@ -29,12 +37,27 @@ public findBook(id_book:string){
 
   let id = parseInt(id_book) // convertimos el id en un number
 
-  this.apiService.getOne(id).subscribe((res:any)=>{
-    
-  console.log(res);
-   this.books = [res.data[0]]
-    
+  if(id_book.length != 0){
+    this.apiService.getOne(id).subscribe((res:Respuesta)=>{
+    if(res.data.length == 0){
+      alert("El libro no existe");
+    }else{
+      console.log(res);
+      this.books = res.data
+    }
+
   })
+  }else{
+    alert("No se ha insertado el id");
+    this.apiService.getAll(this.usuarioService.user.id_user).subscribe((respuesta:Respuesta)=>
+    {
+      console.log(respuesta);
+      
+      this.books = respuesta.data
+    })
+  }
+
+  
 
 }
 
@@ -51,10 +74,15 @@ public findBook(id_book:string){
 
 public recoger(id_book: number) {
  
-this.apiService.delete(id_book).subscribe((datos:any)=>{
+this.apiService.delete(id_book).subscribe((datos:Respuesta)=>{
 
-  this.books=datos.data
-  console.log(datos.data)
+  this.apiService.getAll(this.usuarioService.user.id_user).subscribe((respuesta:Respuesta)=>
+  {
+    console.log(respuesta);
+    this.books = respuesta.data
+    console.log(this.books);
+    
+  })
 }
 
 

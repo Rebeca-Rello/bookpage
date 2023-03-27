@@ -3,6 +3,8 @@ import { BooksComponent } from '../books/books.component';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from 'src/app/shared/user.service';
+import { Respuesta } from 'src/app/models/respuesta';
 
 @Component({
   selector: 'app-update-book',
@@ -10,53 +12,36 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./update-book.component.css']
 })
 export class UpdateBookComponent {
-  // public books:Book[];
 
-  constructor(public apiService:BooksService, private toastr: ToastrService){
-  
-  //   let book1:Book=new Book( "Donde los árboles cantan", "Fantasía", "Laura Gallego", 20, 
-  //                           "https://m.media-amazon.com/images/I/51AcjmteB+L._SY344_BO1,204,203,200_.jpg",1234, 12);
-  
-  //   let book2:Book=new Book ( "Los Pilares de la Tierra", "Historia","Ken Follet",25,
-  //                            "https://pictures.abebooks.com/isbn/9788499086514-es.jpg",1345,21)
-    
-  //   let book3:Book= new Book ("Un cuento perfecto", "Romántica", "Elisabet Benavent", 25,
-  //                              "https://imagessl3.casadellibro.com/a/l/t7/13/9788466354813.jpg",4567,32)
-  
-  //  this.books=[book1, book2, book3];
-  
-  
-  
-  
-  
+
+  constructor(public apiService: BooksService, private toastr: ToastrService, public userService: UserService) {
+    //aquí importamos userService, para poder acceder al objeto user que es donde se guardan los datos del
+    //usuario que recibimos de la BBDD.
   }
-  
 
-public edit (title:string, type:string, author: string, price: number, photo:string, id_book:number){
-  let newBook = new Book(title, type, author, price, photo, Number(id_book));
-   this.apiService.edit (newBook).subscribe((data)=>{
-    this.toastr.success("La referencia del libro " + " " + newBook.id_book + "ha sido modificada")
-  });
+
+  public edit(title: string, type: string, author: string, price: string, photo: string, id_book: number) {
+    let newBook = new Book(title == ""? null:title, type == ""? null:type, author == "" ? null:author, price == ""? null: Number(price),
+                           photo == "" ? null:photo, Number(id_book), this.userService.user.id_user);
+                           this.apiService.edit(newBook).subscribe((respuesta: Respuesta) => {
+                             if (!respuesta.error) {
+                                  if (respuesta.mensaje == "0") {
+                                        alert("El libro no existe")
+                                      } else {
+                                         alert("El libro " + newBook.title + 
+                                          " se ha modificado correctamente")
+                                      }
+                                   } else {
+                                     
+                                      this.toastr.success("No se ha realizado la conexion")
+                                      }
+
+    });
+  }
+
+
 }
 
 
-}
-  
 
-
-  
-  // recoger(bookPadre:Book){
-  
-  //   let findBooks= this.books.filter(index=>index.id_book!=bookPadre.id_book)
-  //   console.log(findBooks);
-  
-      
-  // this.books = findBooks;
-  
-  
-  
-  
-
-
-  
 

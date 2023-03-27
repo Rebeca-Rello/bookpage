@@ -1,16 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Book } from '../models/book';
+import { UserService } from './user.service';
 
-
-let book1:Book=new Book( "Donde los árboles cantan", "Fantasía", "Laura Gallego", 20, 
-"https://m.media-amazon.com/images/I/51AcjmteB+L._SY344_BO1,204,203,200_.jpg",1234 );
-
-let book2:Book=new Book ( "Los Pilares de la Tierra", "Historia","Ken Follet",20,
-"https://pictures.abebooks.com/isbn/9788499086514-es.jpg",1345)
-
-let book3:Book= new Book ("Un cuento perfecto", "Romántica", "Elisabet Benavent", 25,
-  "https://imagessl3.casadellibro.com/a/l/t7/13/9788466354813.jpg",4567)
 
 
 @Injectable({
@@ -33,20 +25,20 @@ export class BooksService {
 
   public libros: Book[]
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public usuarioService:UserService) {
 
-        this.libros=[book1, book2, book3];
+        this.libros=[];
 
   }
 
-  public getAll() { 
+  public getAll(id_user:number) { 
 
-       return this.http.get(this.url)
+       return this.http.get(`${this.url}?id_user=${id_user}`)
  }
 
   public getOne(id_book:number){ 
 
-       return this.http.get(`${this.url}?id=${id_book}`)
+       return this.http.get(`${this.url}?id_user=${this.usuarioService.user.id_user}&id_book=${id_book}`)
   }
  
     
@@ -99,7 +91,7 @@ export class BooksService {
   }
 }
 
-
+/////////////////////////////////////////////////////////////////
 
 
 

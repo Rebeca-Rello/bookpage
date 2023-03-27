@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Respuesta } from 'src/app/models/respuesta';
 import { User } from 'src/app/models/user';
+import { BooksService } from 'src/app/shared/books.service';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +13,7 @@ export class ProfileComponent {
 
 public user:User;
 
-  constructor(){
+  constructor(public apiService: BooksService, public userService: UserService){
 
     this.user =new User(1985, "Manoli", 
                       "García", "manoli@gmail.com", 
@@ -19,14 +22,25 @@ public user:User;
 
   }
 
-  public enviar(nuevoNombre:string, nuevoApellido:string, nuevoEmail:string,nuevaPhoto:string){
+  public enviar(name:string, last_name:string, email:string, photo:string){
 
-     this.user.name = nuevoNombre;
-     this.user.last_name = nuevoApellido;
-     this.user.email = nuevoEmail;
-     this.user.photo =nuevaPhoto;
+    const editUser = new User (this.userService.user.id_user, name, last_name, email,photo,
+                                this.userService.user.password)
+    console.log(editUser);
 
+    this.userService.edit(editUser).subscribe((data:Respuesta)=>{
+      
+      if(data.error !=false){
 
+        alert("No se han podido modificar los datos")
+
+      }else{
+        alert("Se han modificado los datos")
+      }
+    })
+    
+    
+    
   }
 
 

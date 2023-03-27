@@ -18,7 +18,7 @@
     </div>
 
     <div class="cardsbox">
-        <div class="ngif" *ngIf="books.length === 0;else mostrarcards">
+        <div class="ngif" *ngIf="books.length == 0;else mostrarcards">
             No hay libros
         </div>
         <ng-template #mostrarcards>

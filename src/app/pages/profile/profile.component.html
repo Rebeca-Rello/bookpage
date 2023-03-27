@@ -2,9 +2,9 @@
 
     <div class="imagen">
         <div class="preform">
-            <img src="{{user.photo}}"
+            <img src={{userService.user.photo}}
                 alt="">
-                <h2 class="nombre">{{user.name}} {{user.last_name}} </h2>
+                <h2 class="nombre">{{userService.user.name}} {{userService.user.last_name}} </h2>
             <form class="formulario">
                 <div class="label">
                     <label for="">Nombre</label>
@@ -12,9 +12,9 @@
                     <label for="">Email </label>
                 </div>
                 <div class="input">
-                   <p>{{user.name}}</p>
-                   <p>{{user.last_name}}</p>
-                   <p>{{user.email}}</p>
+                   <p>{{userService.user.name}}</p>
+                   <p>{{userService.user.last_name}}</p>
+                   <p>{{userService.user.email}}</p>
                 </div>
             </form>
         </div>
